@@ -8,10 +8,10 @@ numbers = [
 ]
 
 for v in numbers:
-    if(v == 918 ):
+    if v == 918:
         print(v)
         break
-    elif(v % 2 == 0):
+    if v % 2 == 0:
         print(v)
 
 print("Done.")
