@@ -116,7 +116,7 @@ ns.view = (function() {
             // did we get a people array?
             if (people) {
                 for (let i=0, l=people.length; i < l; i++) {
-                    rows += `<tr><td class="fname">${people[i].fname}</td><td class="lname">${people[i].lname}</td><td>${people[i].timestamp}</td></tr>`;
+                    rows += `<tr><td class="person_id">${people[i].person_id}</td><td class="fname">${people[i].fname}</td><td class="lname">${people[i].lname}</td><td>${people[i].timestamp}</td></tr>`;
                 }
                 $('table > tbody').append(rows);
             }
@@ -205,8 +205,14 @@ ns.controller = (function(m, v) {
 
     $('table > tbody').on('dblclick', 'tr', function(e) {
         let $target = $(e.target),
+            person_id,
             fname,
             lname;
+
+        person_id = $target
+            .parent()
+            .find('td.person_id')
+            .text();
 
         fname = $target
             .parent()
@@ -218,7 +224,7 @@ ns.controller = (function(m, v) {
             .find('td.lname')
             .text();
 
-        view.update_editor(fname, lname);
+        view.update_editor(person_id, fname, lname);
     });
 
     // Handle the model events
