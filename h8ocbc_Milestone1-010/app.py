@@ -27,31 +27,5 @@ def home():
     return render_template("home.html")
 
 
-# # Create a URL route in our application for "/people"
-# @connex_app.route("/directors")
-# @connex_app.route("/directors/<int:id>")
-# def directors(id=""):
-#     """
-#     This function just responds to the browser URL
-#     localhost:5000/people
-#     :return:        the rendered template "people.html"
-#     """
-#     return render_template("people.html", id=id)
-
-
-# # Create a URL route to the notes page
-# @connex_app.route("/directors/<int:id>")
-# @connex_app.route("/directors/<int:id>/movies")
-# @connex_app.route("/directors/<int:id>/movies/<int:id>")
-# def movies(director_id, movie_id=""):
-#     """
-#     This function responds to the browser URL
-#     localhost:5000/notes/<person_id>
-#     :param person_id:   Id of the person to show notes for
-#     :return:            the rendered template "notes.html"
-#     """
-#     return render_template("notes.html", director_id=director_id, movie_id=movie_id)
-
-
 if __name__ == "__main__":
     connex_app.run(debug=True)

@@ -17,11 +17,11 @@ paths:
       operationId: director.read_all
       tags:
         - Director
-      summary: Read the entire set of people, sorted by last name
-      description: Read the entire set of people, sorted by last name
+      summary: Read the entire set of director, sorted by last name
+      description: Read the entire set of director, sorted by last name
       responses:
         200:
-          description: Successfully read people set operation
+          description: Successfully read director set operation
           schema:
             type: array
             items:
@@ -86,8 +86,8 @@ paths:
       operationId: director.create
       tags:
         - Director
-      summary: Create a person
-      description: Create a new person
+      summary: Create a director
+      description: Create a new director
       parameters:
         - name: director
           in: body
@@ -110,7 +110,7 @@ paths:
                 description: Department of the director
       responses:
         201:
-          description: Successfully created person
+          description: Successfully created director
           schema:
             properties:
               id:
@@ -134,8 +134,8 @@ paths:
       operationId: director.read_one
       tags:
         - Director
-      summary: Read one person
-      description: Read one person
+      summary: Read one director
+      description: Read one director
       parameters:
         - name: id
           in: path
@@ -144,7 +144,7 @@ paths:
           required: True
       responses:
         200:
-          description: Successfully read person from people data operation
+          description: Successfully read director from director data operation
           schema:
             type: object
             properties:
@@ -208,8 +208,8 @@ paths:
       operationId: director.update
       tags:
         - Director
-      summary: Update a person
-      description: Update a person
+      summary: Update a director
+      description: Update a director
       parameters:
         - name: id
           in: path
@@ -235,7 +235,7 @@ paths:
                 description: Department of the director
       responses:
         200:
-          description: Successfully updated person
+          description: Successfully updated director
           schema:
             properties:
               id:
@@ -275,11 +275,11 @@ paths:
       operationId: movie.read_all
       tags:
         - Movie
-      summary: Read the entire set of notes for all people, sorted by timestamp
-      description: Read the entire set of notes for all people, sorted by timestamp
+      summary: Read the entire set of movies for all director, sorted by timestamp
+      description: Read the entire set of movies for all director, sorted by timestamp
       responses:
         200:
-          description: Successfully read notes for all people operation
+          description: Successfully read movies for all director operation
           schema:
             type: array
             items:
@@ -348,8 +348,8 @@ paths:
       operationId: movie.create
       tags:
         - Movie
-      summary: Create a note associated with a person
-      description: Create a note associated with a person
+      summary: Create a movie associated with a director
+      description: Create a movie associated with a director
       parameters:
         - name: director_id
           in: path
@@ -358,7 +358,7 @@ paths:
           required: True
         - name: movie
           in: body
-          description: Text content of the note to create
+          description: Text content of the movie to create
           required: True
           schema:
             type: object
@@ -398,7 +398,7 @@ paths:
                 description: UID of this movie
       responses:
         201:
-          description: Successfully created a note
+          description: Successfully created a movie
           schema:
             properties:
               director_id:
@@ -446,8 +446,8 @@ paths:
       operationId: movie.read_one
       tags:
         - Movie
-      summary: Read a particular note associated with a person
-      description: Read a particular note associated with a person
+      summary: Read a particular movie associated with a director
+      description: Read a particular movie associated with a director
       parameters:
         - name: director_id
           in: path
@@ -461,7 +461,7 @@ paths:
           required: True
       responses:
         200:
-          description: Successfully read note for a person
+          description: Successfully read movie for a director
           schema:
             type: object
             properties:
@@ -509,8 +509,8 @@ paths:
       operationId: movie.update
       tags:
         - Movie
-      summary: Update a note associated with a person
-      description: Update a note associated with a person
+      summary: Update a movie associated with a director
+      description: Update a movie associated with a director
       parameters:
         - name: director_id
           in: path
@@ -562,7 +562,7 @@ paths:
                 description: UID of this movie
       responses:
         200:
-          description: Successfully updated note
+          description: Successfully updated movie
           schema:
             properties:
               id:
@@ -609,17 +609,17 @@ paths:
       operationId: movie.delete
       tags:
         - Movie
-      summary: Delete a note associated with a person
-      description: Delete a note associated with a person
+      summary: Delete a movie associated with a director
+      description: Delete a movie associated with a director
       parameters:
         - name: director_id
           in: path
-          description: Id of person associated with note
+          description: Id of director associated with movie
           type: integer
           required: True
         - name: id
           in: path
-          description: Id of note
+          description: Id of movie
           type: integer
           required: True
       responses:
