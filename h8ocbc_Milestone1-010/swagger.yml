@@ -342,7 +342,6 @@ paths:
                       type: string
                       description: Department of the director
 
-
   /directors/{director_id}/movies:
     post:
       operationId: movie.create
@@ -625,3 +624,147 @@ paths:
       responses:
         200:
           description: Successfully deleted a movie
+
+  /movies/popular:
+    get:
+      operationId: movie.popular_movies
+      tags:
+        - Movie
+      summary: Read the top 5 most popular movies for all director, sorted by id
+      description: Read the top 5 most popular movies for all director, sorted by id
+      responses:
+        200:
+          description: Successfully read movies for all director operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: ID of movie this director associated with
+                original_title:
+                  type: string
+                  description: Originial title of this movie
+                budget:
+                  type: integer
+                  description: Budget of this movie
+                popularity:
+                  type: integer
+                  description: Popularity of this movie
+                release_date:
+                  type: string
+                  description: Release date of this movie
+                revenue:
+                  type: integer
+                  description: Revenue of this movie
+                title:
+                  type: string
+                  description: Title of this movie
+                vote_average:
+                  type: number
+                  description: Vote Average of this movie
+                vote_count:
+                  type: integer
+                  description: Vote count of this movie
+                overview:
+                  type: string
+                  description: Overview of this movie
+                tagline:
+                  type: string
+                  description: Tagline of this movie
+                uid:
+                  type: integer
+                  description: UID of this movie
+                director_id:
+                  type: integer
+                  description: Director ID of this movie
+                directors:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Id of the director this movie associated with
+                    name:
+                      type: string
+                      description: Name of the director
+                    gender:
+                      type: integer
+                      description: gender of the director
+                    uid:
+                      type: integer
+                      description: UID of the director
+                    department:
+                      type: string
+                      description: Department of the director
+  
+  /movies/budget:
+    get:
+      operationId: movie.low_budget_movies
+      tags:
+        - Movie
+      summary: Read the top 5 most low budget movies for all director, sorted by id
+      description: Read the top 5 most low budget movies for all director, sorted by id
+      responses:
+        200:
+          description: Successfully read movies for all director operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: ID of movie this director associated with
+                original_title:
+                  type: string
+                  description: Originial title of this movie
+                budget:
+                  type: integer
+                  description: Budget of this movie
+                popularity:
+                  type: integer
+                  description: Popularity of this movie
+                release_date:
+                  type: string
+                  description: Release date of this movie
+                revenue:
+                  type: integer
+                  description: Revenue of this movie
+                title:
+                  type: string
+                  description: Title of this movie
+                vote_average:
+                  type: number
+                  description: Vote Average of this movie
+                vote_count:
+                  type: integer
+                  description: Vote count of this movie
+                overview:
+                  type: string
+                  description: Overview of this movie
+                tagline:
+                  type: string
+                  description: Tagline of this movie
+                uid:
+                  type: integer
+                  description: UID of this movie
+                director_id:
+                  type: integer
+                  description: Director ID of this movie
+                directors:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Id of the director this movie associated with
+                    name:
+                      type: string
+                      description: Name of the director
+                    gender:
+                      type: integer
+                      description: gender of the director
+                    uid:
+                      type: integer
+                      description: UID of the director
+                    department:
+                      type: string
+                      description: Department of the director

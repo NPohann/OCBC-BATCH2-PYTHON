@@ -145,3 +145,33 @@ def delete(director_id, id):
     # Otherwise, nope, didn't find that note
     else:
         abort(404, f"Note not found for Id: {id}")
+        
+
+def popular_movies():
+    """
+    This function responds to a request for /api/director/movie
+    with the top 5 most popular list of movie, sorted by movie id
+    :return:                json list of all movie for all director
+    """
+    # Query the database for all the movie
+    movie = Movie.query.order_by(db.desc(Movie.popularity)).limit(5)
+
+    # Serialize the list of movie from our data
+    movie_schema = MovieSchema(many=True)
+    data = movie_schema.dump(movie)
+    return data
+
+def low_budget_movies():
+    """
+    This function responds to a request for /api/director/movie
+    with the top 5 most low budget list of movie, sorted by movie id
+    :return:                json list of all movie for all director
+    """
+    # Query the database for all the movie
+    movie = Movie.query.order_by(db.asc(Movie.budget)).limit(5)
+
+    # Serialize the list of movie from our data
+    movie_schema = MovieSchema(many=True)
+    data = movie_schema.dump(movie)
+    return data
+        
